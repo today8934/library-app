@@ -68,8 +68,8 @@ class BookServiceTest @Autowired constructor(
     @DisplayName("이미 대출되어있는 책에대한 검증")
     fun loanBookFailTest() {
         // given
-        val savedUser = userRepository.save(User("류욱상", 33))
-        val savedBook = bookRepository.save(Book("이펙티브 자바"))
+        userRepository.save(User("류욱상", 33))
+        bookRepository.save(Book("이펙티브 자바"))
         val bookLoanRequest = BookLoanRequest("류욱상", "이펙티브 자바")
         bookService.loanBook(bookLoanRequest)
 

@@ -41,4 +41,24 @@ class JUnitTest {
     fun test2() {
         println("test2")
     }
+
+    @Test
+    fun test() {
+        val user = User("류욱상", 100)
+        println(user.name)
+    }
+
+    class User(
+        name: String,
+        age: Int,
+    ) {
+        var name = name
+            private set
+
+        var age = age
+            private set
+    }
 }
+
+
+

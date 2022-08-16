@@ -2,6 +2,7 @@ package com.group.libraryapp.service.book
 
 import com.group.libraryapp.domain.book.Book
 import com.group.libraryapp.domain.book.BookRepository
+import com.group.libraryapp.domain.book.BookType
 import com.group.libraryapp.domain.user.User
 import com.group.libraryapp.domain.user.UserRepository
 import com.group.libraryapp.domain.user.loanhistory.UserLoanHistoryRepository
@@ -34,7 +35,7 @@ class BookServiceTest @Autowired constructor(
     @DisplayName("책 정상 등록 검증")
     fun saveBookTest() {
         // given
-        val bookRequest = BookRequest("이펙티브 자바", "COMPUTER")
+        val bookRequest = BookRequest("이펙티브 자바", BookType.COMPUTER)
 
         // when
         bookService.saveBook(bookRequest)
@@ -43,7 +44,7 @@ class BookServiceTest @Autowired constructor(
         val allBooks = bookRepository.findAll()
         assertThat(allBooks).hasSize(1)
         assertThat(allBooks[0].name).isEqualTo("이펙티브 자바")
-        assertThat(allBooks[0].type).isEqualTo("COMPUTER")
+        assertThat(allBooks[0].type).isEqualTo(BookType.COMPUTER)
     }
 
     @Test
